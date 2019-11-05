@@ -2,7 +2,7 @@ create database pantrymaster;
 
 \c pantrymaster
 
-create TABLE inventory (
+create TABLE pantry (
     id SERIAL PRIMARY KEY,
     name TEXT,
     image_url TEXT
@@ -15,7 +15,7 @@ create TABLE recipe (
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   email TEXT,
-  password_digest TEXT;
+  password_digest TEXT
 );
 
 INSERT INTO users (email) VALUES ('sunlee128@gmail.com');

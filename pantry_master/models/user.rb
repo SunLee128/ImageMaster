@@ -1,5 +1,6 @@
 require 'bcrypt'
 require 'sinatra/reloader'
+require 'pg'
 
 def all_users
     return run_sql("select * from users;")
@@ -21,14 +22,15 @@ def create_user(email,password)
     return run_sql(sql)
 end
 
-def logged_in? #predicate method - return a boolean
-    return !!current_user #truthy
-    #     return true
-    # else 
-    #     return false
-    # end
-end
+# def logged_in? #predicate method - return a boolean
+#     return !!current_user #truthy
+#     #     return true
+#     # else 
+#     #     return false
+#     # end
+# end
 
 def current_user
     find_one_user(session[:user_id])
 end
+

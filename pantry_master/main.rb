@@ -6,17 +6,27 @@ require 'bcrypt'
 if settings.development?
   require 'sinatra/reloader'
   also_reload 'models/*'
+  also_reload 'controller/*'
   require 'pry'
 end
 
-require_relative 'models/user'
-require_relative 'models/recipe'
-require_relative 'controller/controller'
+# require_relative 'models/user'
+# require_relative 'models/recipe'
+require_relative 'controller/login_controller'
+require_relative 'controller/recipe_controller'
 
 key = ENV['EDAMAM_RECIPE_API_KEY']
 id = ENV['EDAMAM_RECIPE_API_ID']
 
 enable :sessions  
+
+def run_sql(sql)
+  conn = PG.connect(ENV['DATABASE_URL']||{dbname: "pantrymaster"})
+  records = conn.exec(sql)
+  conn.close
+  return records
+end
+
 
 get '/' do
   # @recipes = all_dishes()
@@ -28,6 +38,28 @@ get '/search' do
   @keyword = params[:keyword]
   erb :search
 end
+
+# =====users=======================
+def all_users
+  return run_sql("select * from users;")
+end
+
+def find_one_user(id)
+  return nil unless id #guard condition- early return
+  return run_sql("select * from users where id = #{id};").first
+end
+
+def find_user_by_email(email)
+  return run_sql("select * from users where email = '#{email}';").first
+end
+
+def create_user(email,password)
+  password_digest = BCrypt::Password.create(password)
+  sql = "insert into users(email,password_digest)"
+  sql += "values ('#{email}','#{password_digest}');"
+  return run_sql(sql)
+end
+# =======users==========================
 
 # get '/movie' do
 #   # check moves db
@@ -96,24 +128,9 @@ end
 #   erb :show_user
 # end
 
-get '/login' do
-  erb :login
-end
-
-# # binding.pry
-
-post '/login' do
-  user = find_user_by_email(params[:email])
-  if BCrypt::Password.new(user["password_digest"]) == params[:password]
-    session[:user_id] = user["id"] #single source of truth
-    redirect '/' #user dashboard or profile page, if you want
-  else
-    return "Your email or password is incorrect."
-  end
-  erb :login
-end
-
-delete '/logout' do
-  session[:user_id] = nil
-  redirect "/"
+def create_user(email,password)
+    password_digest = BCrypt::Password.create(password)
+    sql = "insert into users(email,password_digest)"
+    sql += "values ('#{email}','#{password_digest}');"
+    return run_sql(sql)
 end
