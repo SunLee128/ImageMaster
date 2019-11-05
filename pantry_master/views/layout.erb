@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pantry Master</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+  <h1 class=title>Pantry Master </h1>
+  <p class=line>Get on top of your recipes and shopping list</p>
+  <form action="/search" method="get">
+    <label for=""></label>
+    <input type="text" name="keyword" placeholder="What do you feel like" >
+    <button>search</button>
+  </form>
+    <a href="/login"><button>login</button></a>
+</header>
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<div class=result>
+    <% @search["hits"].each do |item| %>
+        <div class=tile>
+            <div class="image">
+                    <img class=thumbnail src="<%= item["recipe"]["image"]%>" alt="<%= item["label"] %>">
+            </div>
+            <p class=searched_title> 
+                <%= item["recipe"]["label"] %>
+            </p>
+        </div>
+    <% end %>
+</div>
