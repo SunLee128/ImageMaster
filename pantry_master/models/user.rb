@@ -1,13 +1,14 @@
 require 'bcrypt'
 require 'sinatra/reloader'
 require 'pg'
+require_relative '../main'
 
 def all_users
     return run_sql("select * from users;")
 end
 
 def find_one_user(id)
-    return nil unless id #guard condition- early return
+    return nil unless id 
     return run_sql("select * from users where id = #{id};").first
 end
 
@@ -22,15 +23,16 @@ def create_user(email,password)
     return run_sql(sql)
 end
 
-# def logged_in? #predicate method - return a boolean
-#     return !!current_user #truthy
-#     #     return true
-#     # else 
-#     #     return false
-#     # end
-# end
+def logged_in? 
+    return !!current_user
+end
 
 def current_user
     find_one_user(session[:user_id])
+end
+
+get '/user_details' do
+  @user = find_one_user(params[:id])
+  erb :show_user
 end
 

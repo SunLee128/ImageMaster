@@ -1,12 +1,24 @@
 <div class=result>
-    <% @search["hits"].each do |item| %>
+    <% @hits.each do |item| %>
         <div class=tile>
             <div class="image">
+                <a href="<%= item["recipe"]["url"]%>">
                     <img class=thumbnail src="<%= item["recipe"]["image"]%>" alt="<%= item["label"] %>">
+                </a>
             </div>
-            <p class=searched_title> 
-                <%= item["recipe"]["label"] %>
-            </p>
+            <div class="searched_title">
+                <p> 
+                    <%= item["recipe"]["label"] %>
+                </p>
+            </div>
+            <div class="ingredients"> 
+                <% ingredientLines=item["recipe"]["ingredientLines"]%>
+                <p>
+                    <% ingredientLines.each do |ingredient| %>
+                        <p><%= ingredient %></p>
+                    <% end%>
+                </p>
+            </div>
         </div>
     <% end %>
 </div>

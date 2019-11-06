@@ -10,8 +10,8 @@ if settings.development?
   require 'pry'
 end
 
-# require_relative 'models/user'
-# require_relative 'models/recipe'
+require_relative 'models/user'
+require_relative 'models/recipe'
 require_relative 'controller/login_controller'
 require_relative 'controller/recipe_controller'
 
@@ -29,37 +29,16 @@ end
 
 
 get '/' do
-  # @recipes = all_dishes()
   erb :index
 end
 
 get '/search' do
-  @search = HTTParty.get("https://api.edamam.com/search?q=#{params[:keyword]}&app_id=#{id}&app_key=#{key}&from=0&to=30")
+  search = HTTParty.get("https://api.edamam.com/search?q=#{params[:keyword]}&app_id=#{id}&app_key=#{key}&from=0&to=30")
+  
+  @hits = search["hits"]
   @keyword = params[:keyword]
   erb :search
 end
-
-# =====users=======================
-def all_users
-  return run_sql("select * from users;")
-end
-
-def find_one_user(id)
-  return nil unless id #guard condition- early return
-  return run_sql("select * from users where id = #{id};").first
-end
-
-def find_user_by_email(email)
-  return run_sql("select * from users where email = '#{email}';").first
-end
-
-def create_user(email,password)
-  password_digest = BCrypt::Password.create(password)
-  sql = "insert into users(email,password_digest)"
-  sql += "values ('#{email}','#{password_digest}');"
-  return run_sql(sql)
-end
-# =======users==========================
 
 # get '/movie' do
 #   # check moves db
@@ -97,36 +76,11 @@ end
 #   erb :new_dish
 # end
 
-# post '/create_item' do
-#   create_dish(params[:name], params[:image_url])
-#   redirect "/"
-# end
-
-# delete '/destroy_item' do
-#   delete_dish(params[:id])
-#   redirect "/"
-# end
-
-# get '/edit' do
-#   @dish = find_one_dish(params[:id])
-#   erb :edit
-# end
-
 # patch '/update_itme' do
 #   update_dish(params[:name], params[:image_url],params[:id])
 #   redirect "/details?id=#{params[:id]}"
 # end
 
-
-# get '/users' do
-#   @users = all_users()
-#   erb :all_users
-# end
-
-# get '/user_details' do
-#   @user = find_one_user(params[:id])
-#   erb :show_user
-# end
 
 def create_user(email,password)
     password_digest = BCrypt::Password.create(password)
