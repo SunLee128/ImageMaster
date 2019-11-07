@@ -1,7 +1,4 @@
-require 'bcrypt'
-require 'sinatra/reloader'
-require 'pg'
-require_relative '../main'
+
 
 def analyze_image(img_url)
     # net/http get with dynamic parameters

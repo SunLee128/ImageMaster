@@ -1,7 +1,4 @@
-require 'bcrypt'
-require_relative '../models/user'
-require_relative '../models/image'
-require 'pry'
+
 
 get '/user_login' do
     erb :user_login

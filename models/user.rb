@@ -1,7 +1,4 @@
-require 'bcrypt'
-require 'sinatra/reloader'
-require 'pg'
-require_relative '../main'
+
 
 def all_users
     return run_sql("select * from users;")
