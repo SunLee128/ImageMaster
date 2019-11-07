@@ -1,0 +1,139 @@
+/*  **contents**
+analyse.erb
+filter_results.erb
+index.erb
+layout.erb
+user_detail.erb
+user_login.erb
+user_signup.erb*/
+
+/*  analyse.erb */ 
+.analyse{
+   display: flex;
+   justify-content: space-between;
+   margin: 10px;
+} 
+.image{
+    width: 60%;
+    margin-right: 10px;
+}
+.item {
+   width: 100%;
+}
+.result{
+    width: 30%;
+   display: flex;
+   flex-wrap: wrap;
+   padding-left: 10px;;
+}
+.name, .score, .captions, .confidence{
+    display: flex;
+    font-size: 20px;
+    padding: 10px;
+}
+.tags {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: left;
+   align-items: center;
+   font-size: 20px;
+   width: 40%;
+}
+#tag {
+   padding:3px;
+   margin:2px;
+}
+
+.searched_title {
+   font-weight: 600;;
+}
+
+/* index */
+.login{
+   text-align: center;
+}
+/*   layout.erb  */
+body{
+    font-family: 'Raleway', sans-serif;
+}
+.header_container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: baseline;
+    background-color: mistyrose;
+}
+.header{
+    font-size: 10px;
+}
+#headerform {
+    width: 450px;
+    padding: 6px;
+    border-radius: 30px;
+}
+
+ /* user_detail.erb */
+ .user_detail{
+     
+ }
+.filterbytag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#filterform {
+    width: 50%;
+}
+
+button{
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.user_history{
+    column-count: 3;
+    column-gap: 3em;
+}
+.tile{
+    margin: 10px;
+    width: 100%;
+}
+.searched_image {
+    width: 100%;
+    margin: 10px;
+}
+.caption {
+    font-weight: 600;
+}
+.metadata{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+#tag {
+    background-color: lightgrey;
+    margin: 5px;
+}
+ /*  user_login.erb */
+.login_header{
+    text-align: center;
+ }
+.longin_container{
+    font-size: 20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+input{
+    margin: 10px;
+    font-size: 20px;
+}
+.loginbutton {
+    font-size: 20px;
+    background-color: teal;
+    color: white;
+    margin: 10px;
+}
+ /*  user_signup.erb */

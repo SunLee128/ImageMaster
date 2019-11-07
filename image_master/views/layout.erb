@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Master</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header>
+    <div class="header_container">
+      <div class="header">
+        <h1 class=title>Image Master </h1>
+      </div>
+      <div clss="searchbar">
+        <form action="/analyse" method="get">
+          <label for=""></label>
+          <input id="headerform" type="text" name="userinput" placeholder="Type image url here">
+          <button>submit</button>
+        </form>
+      </div>
+      <div class="login">
+          <% if logged_in? %>
+            <p>Logged in as <%= current_user["email"]%></p>
+            <form action="/user_logout" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button>logout</button>
+            </form>
+          <% else %>
+            <a href="/user_login"><button>login</button></a>
+            <a href="/user_signup"><button>signup</button></a>
+          <% end %>
+      </div>
+    </div>
+  </header>
+<%= yield %>
+
+  <footer>
+    <div>
+   
+    </div>
+  </footer>
+</body>
+</html>

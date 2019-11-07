@@ -30,9 +30,3 @@ end
 def current_user
     find_one_user(session[:user_id])
 end
-
-get '/user_details' do
-  @user = find_one_user(params[:id])
-  erb :show_user
-end
-

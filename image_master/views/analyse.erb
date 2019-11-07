@@ -1,0 +1,31 @@
+<div class="analyse">
+   <div class="image">
+      <img class="item" src=<%= params[:userinput] %> alt="">
+   </div>
+   <div class="results">
+      <div class="name">
+         <span>name: </span><span> <%= @name %></span> 
+      </div>
+      <div class="score">
+         <span>score: </span><span> <%= @name_score %></span>
+      </div>
+      <div class="tags">
+         <p>tags: </p><% @tags.each do |tag| %>
+                     <p id="tag"><%= tag %></p>
+                  <% end %>
+      </div>
+      <div class="captions">
+         <p>captions: </p> <p><%= @captions %></p>
+      </div>
+      <div class="confidence">
+         <p>confidence: </p> <p><%= @confidence %></p> 
+      </div>
+      <div>
+      <form action="/save_image" method="post">
+         <button>save image</button>
+      </form>
+      </div>
+   </div>
+</div>
+
+<a href="/user_detail">my page</a>

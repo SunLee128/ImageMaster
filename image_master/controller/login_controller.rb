@@ -1,6 +1,6 @@
 require 'bcrypt'
 require_relative '../models/user'
-require_relative '../models/recipe'
+require_relative '../models/image'
 require 'pry'
 
 get '/user_login' do
@@ -36,8 +36,4 @@ end
 post '/user_signup' do
     create_user(params[:email],params[:password])
     redirect'/'
-end
-
-get '/user_detail' do
-    erb :user_detail
 end
