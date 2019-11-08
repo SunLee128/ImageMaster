@@ -21,11 +21,13 @@
          <p>confidence: </p> <p><%= @confidence %></p> 
       </div>
       <div>
-      <form action="/save_image" method="post">
-         <button>save image</button>
-      </form>
+         <form action="/save_image" method="post">
+            <button>save image</button>
+         </form>
+         <form action="/user_detail" method="get">
+            <button>my page</button>
+         </form>
       </div>
    </div>
 </div>
 
-<a href="/user_detail">my page</a>

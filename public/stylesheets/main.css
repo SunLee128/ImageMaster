@@ -53,6 +53,12 @@ user_signup.erb*/
    text-align: center;
 }
 /*   layout.erb  */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+
 body{
     font-family: 'Raleway', sans-serif;
 }
@@ -71,7 +77,6 @@ body{
     padding: 6px;
     border-radius: 30px;
 }
-
  /* user_detail.erb */
  .user_detail{
      
@@ -89,6 +94,7 @@ body{
 button{
     font-size: 20px;
     border-radius: 10px;
+    margin: 10px;
 }
 
 .user_history{

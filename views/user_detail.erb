@@ -1,13 +1,15 @@
 <div class="user_detail">
-    <div clss="filterbytag">
-        <form  action="/image_filter" method="get">
-            <label for=""></label>
-            <input id="filterform" type="text" name="keyword" placeholder="search your image by tags">
-            <button>search</button>
-        </form>
-    </div>
-    <div class="user_detail">
-        <h2> your images</h2>
+    <div class="userheader">
+        <div class="user_detail" >
+            <h2> your images</h2>
+        </div>
+        <div clss="filterbytag">
+            <form  action="/image_filter" method="get">
+                <label for=""></label>
+                <input id="filterform" type="text" name="keyword" placeholder="search your image by tags">
+                <button>search</button>
+            </form>
+        </div>
     </div>
     <div class="user_history">
         <% @images_by_user.each do |image| %>

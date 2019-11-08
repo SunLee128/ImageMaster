@@ -1,4 +1,5 @@
 # ImageMaster
+(images/exmple.png)
 
 ### Link
 <https://imagemaster.herokuapp.com/>
@@ -8,14 +9,23 @@ ImageMaster allows you to analyse images using Microsoft Computer Vision API v2.
 You can create an account, login to save the images and tags. 
 
 ### Features
-User login, logout, signup
-Analyse image with image URL
-Save images and tags
-Search images by tags
+<ul>
+<li>User login, logout, signup</li>
+<li>Analyse image with image URL</li>
+<li>Save images and tags</li>
+<li>Search images by tags</li>
+</ul>
 
-### Technologies used
-Ruby
-Sinatra
-PSQL
-Microsoft Computer Vision API v2.0
-Heroku
+### Technologies Used
+<ul>
+<li>Ruby</li>
+<li>Sinatra</li>
+<li>PSQL</li>
+<li>Microsoft Computer Vision API v2.0</li>
+<li>Heroku</li>
+</ul>
+
+
+
+
+
