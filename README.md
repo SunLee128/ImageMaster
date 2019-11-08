@@ -1,12 +1,12 @@
 # ImageMaster
-(images/exmple.png)
+![screenshot](images/exmple.png)
 
 ### Link
 <https://imagemaster.herokuapp.com/>
 
 ### Description
 ImageMaster allows you to analyse images using Microsoft Computer Vision API v2.0. Simply submit an image URL in the search window and it will return tags and description with scores for the submitted image. 
-You can create an account, login to save the images and tags. 
+You can create a user account and login to save the images and tags. 
 
 ### Features
 <ul>
