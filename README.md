@@ -1,5 +1,4 @@
 # ImageMaster
-![screenshot](images/exmple.png)
 
 ### Link
 <https://imagemaster.herokuapp.com/>

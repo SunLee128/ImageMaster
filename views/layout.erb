@@ -22,7 +22,7 @@
       </div>
       <div class="login">
           <% if logged_in? %>
-            <p>Logged in as <%= current_user["email"]%></p>
+            <span>Logged in as <%= current_user["email"]%></span>
             <form action="/user_logout" method="post">
             <input type="hidden" name="_method" value="delete">
             <button>logout</button>

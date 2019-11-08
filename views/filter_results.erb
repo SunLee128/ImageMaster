@@ -1,20 +1,23 @@
   
 <div clss="filterbytag">
-    <form action="/image_filter" method="get">
+    <form  action="/image_filter" method="get">
         <label for=""></label>
-        <input id="filterform" type="text" name="keyword" placeholder="search your image by tags">
-        <button>search</button>
+            <div id="filterform" >
+                    <input type="text" name="keyword" placeholder="search your image by tags">
+                    <button>search</button>
+            </div>
     </form>
 </div>
 <div class="user_history">
     <% @filtered_by_keyword.each do |image| %>
         <div class="tile">
-            <img class="searched_image" src="<%= image["image_url"] %>" alt="">
+            <a href="/detailimage?<%= image["id"] %>">
+                <img class="searched_image" src="<%= image["image_url"] %> alt="">
+            </a>
             <div class="caption">
                     <p><%= image["caption"] %></p>
                     <p><%= image["id"] %></p>
             </div>
-
             <div class="metadata">
                 <% image["tags"].sub!("{","").sub!("}","").split(",").each do |tag| %>
                     <p id="tag"><%= tag %></p>     

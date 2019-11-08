@@ -70,33 +70,49 @@ body{
     background-color: mistyrose;
 }
 .header{
-    font-size: 10px;
+    padding-left: 20px;
+    font-size: 15px;
+    font-weight: 800;
 }
 #headerform {
-    width: 450px;
+    width: 800px;
     padding: 6px;
     border-radius: 30px;
 }
+.login{
+    display: flex;
+    align-items: baseline;
+    padding-right: 20px;
+}
  /* user_detail.erb */
- .user_detail{
-     
+ .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 10px;
+}
+ .yourimages {
+     display: flex;
+     justify-content: center;
  }
 .filterbytag {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
 }
 #filterform {
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
 }
-
+#filterform > input{
+    width: 500px;
+}
 button{
     font-size: 20px;
     border-radius: 10px;
     margin: 10px;
+    cursor: pointer;
 }
-
 .user_history{
     column-count: 3;
     column-gap: 3em;

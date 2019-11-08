@@ -1,5 +1,4 @@
 window.onscroll = function() {myFunction()};
-
 // Get the header
 var header = document.getElementById("myHeader");
 
