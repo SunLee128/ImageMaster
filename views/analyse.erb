@@ -22,6 +22,7 @@
       </div>
       <div>
          <form action="/save_image" method="post">
+            <input type="hidden"  name="userinput" value="<%= params[:userinput] %>">
             <button>save image</button>
          </form>
          <form action="/user_detail" method="get">
